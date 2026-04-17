@@ -6,6 +6,10 @@ const initialState = {
   contactTime: '',
   message: '',
 };
+const API_URL =
+  import.meta.env.PROD
+    ? 'https://contact-intake.onrender.com/api/contact'
+    : '/api/contact';
 
 export default function ContactIntakeForm({ onSuccess }) {
   const [form, setForm] = useState(initialState);
@@ -36,7 +40,7 @@ export default function ContactIntakeForm({ onSuccess }) {
     setSubmitting(true);
     setConfirmation('');
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
