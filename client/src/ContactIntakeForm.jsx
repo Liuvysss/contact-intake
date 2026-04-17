@@ -8,7 +8,7 @@ const initialState = {
 };
 const API_URL =
   import.meta.env.PROD
-    ? 'https://contact-intake.onrender.com/api/contact'
+    ? 'https://contact-intake.up.railway.app/api/contact'
     : '/api/contact';
 
 export default function ContactIntakeForm({ onSuccess }) {
